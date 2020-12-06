@@ -5,7 +5,7 @@ const Display = () => {
 
     return (
 
-<h1>I am the display route</h1>
+<h1>Welcome</h1>
 
 )
 
