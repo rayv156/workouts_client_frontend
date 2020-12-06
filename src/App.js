@@ -4,6 +4,7 @@ import { Route, Switch } from 'react-router-dom'
 import Display from './components/Display'
 import Login from './components/Login'
 import Signup from './components/Signup'
+import Create from './components/Create'
 import Navigation from './components/Navigation'
 
 export const GlobalCtx = React.createContext(null)
@@ -31,6 +32,8 @@ function App() {
         <Route path="/" exact component={Display} />
         <Route path="/signup" exact component={Signup} />
         <Route path="/login" exact component={Login} />
+        <Route path="/create" exact component={Create} />
+        
       </Switch>
     </div>
     </GlobalCtx.Provider>
