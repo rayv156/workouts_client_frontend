@@ -1,9 +1,10 @@
 import React from 'react'
 import { Navbar, Nav} from 'react-bootstrap'
+import {GlobalCtx} from "../App"
 
 
-const Navigation = () => {
-
+const Navigation = ({history}) => {
+  const {gState, setgState} = React.useContext(GlobalCtx)
     return (
 <>
 <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -18,6 +19,12 @@ const Navigation = () => {
       <Nav.Link href="/signup">
         Signup
       </Nav.Link>
+      <Nav.Link href="/" onClick={() => {
+                    window.localStorage.removeItem("token")
+                    setgState({...gState, token: false, user: null})
+
+                }}>Logout</Nav.Link>
+
     </Nav>
   </Navbar.Collapse>
 </Navbar>

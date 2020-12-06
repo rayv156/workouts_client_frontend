@@ -29,7 +29,8 @@ const Login = ({ history }) => {
         })
         .then(response => response.json())
         .then(data => {
-            window.localStorage.setItem("token", JSON.stringify(data))
+            window.localStorage.setItem("token", data.token)
+            window.localStorage.setItem("user", JSON.stringify(data.user))
             setgState({...gState, token: true, user: data.user})
             setForm(blank)
             history.push("/")
