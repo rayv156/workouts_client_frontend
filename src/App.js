@@ -5,13 +5,14 @@ import Display from './components/Display'
 import Login from './components/Login'
 import Signup from './components/Signup'
 import Create from './components/Create'
+import Update from './components/Update'
 import Navigation from './components/Navigation'
 
 export const GlobalCtx = React.createContext(null)
 
 function App() {
 
-  const [gState, setgState] = React.useState({url: "http://localhost:3000", token: false, user: null})
+  const [gState, setgState] = React.useState({url: "http://localhost:3000", token: false, user: null, selectedLog: null})
 
   React.useEffect(()=>{
      const token = window.localStorage.getItem("token")
@@ -33,6 +34,7 @@ function App() {
         <Route path="/signup" exact component={Signup} />
         <Route path="/login" exact component={Login} />
         <Route path="/create" exact component={Create} />
+        <Route path="/update" exact component={Update}  />
         
       </Switch>
     </div>

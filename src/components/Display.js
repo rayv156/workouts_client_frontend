@@ -3,7 +3,7 @@ import {GlobalCtx} from "../App"
 import { Link } from 'react-router-dom'
 
 
-const Display = () => {
+const Display = ({history}) => {
     const {gState, setgState} = React.useContext(GlobalCtx)
     const { url } = gState
     const [logs, setLogs]= React.useState([])
@@ -24,18 +24,25 @@ const Display = () => {
     React.useEffect(() => {
       getLogs()
     }, [])
+
+    const selectWord = (log) => {
+        setSelectedLog(log);
+      };
   
   
   const loaded = () => (
-    <>
+    <div className="log-container" style={{display: 'flex'}}>
     {logs.map((log)=> {
       return (
-        <div class="card" style={{width: '80%', margin: 'auto'}}>
+        <div className="card" style={{width: '80%', margin: 10, height: 350, justifyContent: 'space-between'}}>
             
-      <h1>{log.duration}</h1>
-      <h2>{log.workout}</h2>
-      <h3>{log.notes}</h3>
-      <button class="btn btn-primary" onClick={async ()=> {
+      <h2 className="card-header">{log.workout}</h2>
+      <h3 className="card-title">Time: {log.duration}</h3>
+      <p className="card-text">Notes: {log.notes}</p>
+      <button className="card-footer btn btn-secondary" style={{width: 70, margin: '10px auto', justifySelf: 'flex-end', backgroundColor: 'gray'}} onClick={() => {
+          setgState({...gState, selectedLog: log})
+          history.push("/update")}}>Edit</button>
+      <button className="card-footer btn btn-danger" style={{width: 70, margin: '10px auto', justifySelf: 'flex-end', backgroundColor: 'red'}} onClick={async ()=> {
         const token = await window.localStorage.getItem("token") 
         await fetch("http://localhost:3000/logs/" + log.id, {
           method: "delete",
@@ -45,17 +52,17 @@ const Display = () => {
           }
         })
         getLogs()
-      }}>Delete</button>
+      }}><ion-icon name="trash-outline" style={{fontSize: 25}}></ion-icon></button>
       </div>
     )
     })}
-    </>
+    </div>
     )
   
   
     return (
-      <div className="App">
-        <button class="btn btn-primary"><Link to="/create" style={{textDecoration: 'none', color: 'white'}}>Create New Log</Link></button>
+      <div className="logs">
+        <button class="btn btn-primary" style={{margin: 15}}><Link to="/create" style={{textDecoration: 'none', color: 'white'}}>Create New Log</Link></button>
         <h1>Logs</h1>
       {logs.length > 0 ? loaded() : null}
       </div>
