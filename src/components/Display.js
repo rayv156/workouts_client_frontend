@@ -25,24 +25,22 @@ const Display = ({history}) => {
       getLogs()
     }, [])
 
-    const selectWord = (log) => {
-        setSelectedLog(log);
-      };
-  
+   
   
   const loaded = () => (
     <div className="log-container" style={{display: 'flex'}}>
     {logs.map((log)=> {
       return (
-        <div className="card" style={{width: '80%', margin: 10, height: 350, justifyContent: 'space-between'}}>
+        <div className="card" style={{width: '80%', margin: 10, height: 350, justifyContent: 'space-between', fontFamily: 'Permanent Marker, cursive'}}>
             
       <h2 className="card-header">{log.workout}</h2>
       <h3 className="card-title">Time: {log.duration}</h3>
       <p className="card-text">Notes: {log.notes}</p>
-      <button className="card-footer btn btn-secondary" style={{width: 70, margin: '10px auto', justifySelf: 'flex-end', backgroundColor: 'gray'}} onClick={() => {
+      <div className="card-footer" style={{display: 'flex', justifyContent: 'space-between'}}>
+      <button className="btn btn-secondary" style={{width: 70, margin: '10px', backgroundColor: 'gray'}} onClick={() => {
           setgState({...gState, selectedLog: log})
-          history.push("/update")}}>Edit</button>
-      <button className="card-footer btn btn-danger" style={{width: 70, margin: '10px auto', justifySelf: 'flex-end', backgroundColor: 'red'}} onClick={async ()=> {
+          history.push("/update")}}><ion-icon name="create-outline" style={{fontSize: 25}}></ion-icon></button>
+      <button className="btn btn-danger" style={{width: 70, margin: '10px', backgroundColor: 'red'}} onClick={async ()=> {
         const token = await window.localStorage.getItem("token") 
         await fetch("http://localhost:3000/logs/" + log.id, {
           method: "delete",
@@ -53,6 +51,7 @@ const Display = ({history}) => {
         })
         getLogs()
       }}><ion-icon name="trash-outline" style={{fontSize: 25}}></ion-icon></button>
+      </div>
       </div>
     )
     })}

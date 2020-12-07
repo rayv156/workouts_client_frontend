@@ -7,6 +7,7 @@ import Signup from './components/Signup'
 import Create from './components/Create'
 import Update from './components/Update'
 import Navigation from './components/Navigation'
+import NavSignedIn from './components/NavSignedIn'
 
 export const GlobalCtx = React.createContext(null)
 
@@ -25,10 +26,18 @@ function App() {
     }
   }, [])
 
+  const checkLogin = () => {
+    if (gState.token){
+      return <NavSignedIn/>
+    } else {
+      return <Navigation/>
+    }
+  }
+
   return (
     <GlobalCtx.Provider value={{ gState, setgState }}>
     <div className="App">
-      <Navigation/>
+      {checkLogin()}
       <Switch>
         <Route path="/" exact component={Display} />
         <Route path="/signup" exact component={Signup} />
