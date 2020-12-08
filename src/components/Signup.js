@@ -1,5 +1,7 @@
 import React from 'react'
 import {GlobalCtx} from "../App"
+import './Login.css'
+
 
 
 const Signup = ({history}) => {

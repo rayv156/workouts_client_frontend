@@ -16,6 +16,8 @@ const NavSignedIn = ({history}) => {
     </Nav>
     <Nav>
       <Navbar.Text>Signed in as: {gState.user.username} </Navbar.Text>
+      <Nav.Link href="/workouts">Workouts</Nav.Link>
+      <Nav.Link href="/logs">Logs</Nav.Link>
       <Nav.Link href="/" onClick={() => {
                     window.localStorage.removeItem("token")
                     setgState({...gState, token: false, user: null})

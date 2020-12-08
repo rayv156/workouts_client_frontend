@@ -3,7 +3,7 @@ import {GlobalCtx} from "../App"
 import { Link } from 'react-router-dom'
 
 
-const Display = ({history}) => {
+const Logs = ({history}) => {
     const {gState, setgState} = React.useContext(GlobalCtx)
     const { url } = gState
     const [logs, setLogs]= React.useState([])
@@ -68,4 +68,4 @@ const Display = ({history}) => {
     );
 }
 
-export default Display
+export default Logs

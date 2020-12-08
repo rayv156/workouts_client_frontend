@@ -1,6 +1,7 @@
 .navbar {
-    border-radius: 20px;
-    background-color: darkslategrey;
+    background-color: black;
+    opacity: 0.8;
+    index: 1;
 }
 
 button:focus {

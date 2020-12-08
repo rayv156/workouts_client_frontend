@@ -1,5 +1,6 @@
 import React from 'react'
 import {GlobalCtx} from "../App"
+import './Create.css'
 
 const Create = ({history}) => {
     const {gState, setgState} = React.useContext(GlobalCtx)
@@ -36,8 +37,11 @@ const Create = ({history}) => {
           <div>
         <h1>Create Log</h1>
         <form onSubmit={handleCreate}>
-          <input type="text" name="duration" value={formData.duration} onChange={createChange}/>
+        <label>Duration: </label>
+          <input type="time" className="without_ampm" name="duration" value={formData.duration} onChange={createChange}/>
+        <label>Workout Type: </label>
           <input type="text" name="workout" value={formData.workout} onChange={createChange}/>
+          <label>Notes: </label>
           <input type="text" name="notes" value={formData.notes} onChange={createChange}/>
           <input type="hidden" name="user_id" value={formData.user_id}/>
           <input type="submit" value="Create Workout Log"/>

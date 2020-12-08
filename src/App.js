@@ -1,13 +1,14 @@
 import React from 'react';
 import './App.css';
 import { Route, Switch } from 'react-router-dom'
-import Display from './components/Display'
+import Logs from './components/Logs'
 import Login from './components/Login'
 import Signup from './components/Signup'
 import Create from './components/Create'
 import Update from './components/Update'
 import Navigation from './components/Navigation'
 import NavSignedIn from './components/NavSignedIn'
+import Landing from './components/Landing'
 
 export const GlobalCtx = React.createContext(null)
 
@@ -39,7 +40,8 @@ function App() {
     <div className="App">
       {checkLogin()}
       <Switch>
-        <Route path="/" exact component={Display} />
+        <Route path="/" exact component={Landing} />
+        <Route path="/logs" exact component={Logs} />
         <Route path="/signup" exact component={Signup} />
         <Route path="/login" exact component={Login} />
         <Route path="/create" exact component={Create} />
