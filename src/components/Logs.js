@@ -1,6 +1,7 @@
 import React from 'react'
 import {GlobalCtx} from "../App"
 import { Link } from 'react-router-dom'
+import './Logs.css'
 
 
 const Logs = ({history}) => {
@@ -28,7 +29,7 @@ const Logs = ({history}) => {
    
   
   const loaded = () => (
-    <div className="log-container" style={{display: 'flex'}}>
+    <div className="log-container" >
     {logs.map((log)=> {
       return (
         <div className="card" style={{width: '80%', margin: 10, height: 350, justifyContent: 'space-between', fontFamily: 'Permanent Marker, cursive'}}>
@@ -61,7 +62,7 @@ const Logs = ({history}) => {
   
     return (
       <div className="logs">
-        <button class="btn btn-primary" style={{margin: 15}}><Link to="/create" style={{textDecoration: 'none', color: 'white'}}>Create New Log</Link></button>
+        <button class="btn btn-secondary" style={{margin: 15}}><Link to="/create" style={{textDecoration: 'none', color: 'white'}}>Create New Log</Link></button>
         <h1>Logs</h1>
       {logs.length > 0 ? loaded() : null}
       </div>

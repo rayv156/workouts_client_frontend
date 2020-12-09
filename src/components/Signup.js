@@ -41,44 +41,37 @@ const Signup = ({history}) => {
 
     return (
         <div className="form-container">
-                
-                <h1>Signup</h1>
-    <div className="form-content-right">
+    
     <form className="form" onSubmit={handleSubmit}>
-        <h1>Welcome</h1>
-        <div className="form-inputs">
-            <label htmlFor="username" className="form-label">
-                Username:
-            </label>
+        <h1>Signup</h1>
+        <div className="form-group form-inline">
+        <label><ion-icon name="person-outline"></ion-icon></label>
             <input
                 id="username"
                 type="text"
                 name='username'
-                className='form-input'
+                className='form-control'
                 placeholder="Enter your username"
                 value={form.username}
                 onChange={handleChange} />
             
         </div>
 
-        <div className="form-inputs">
-            <label htmlFor="password"
-                className="form-label">
-                Password:
-            </label>
+        <div className="form-group form-inline">
+        <label><ion-icon name="lock-closed-outline"></ion-icon></label>
             <input id="password"
                 type="password"
                 name='password'
-                className='form-input'
+                className='form-control'
                 placeholder="Enter your password"
                 value={form.password}
                 onChange={handleChange} />
         </div>
         <button
-            className="form-input-btn"
-            type="submit">Submit</button>
+            className="btn btn-primary btn-block"
+            type="submit" style={{backgroundColor: 'darkslategray'}}>Submit</button>
     </form>
-</div>
+
 </div>
     )
 

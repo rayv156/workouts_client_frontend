@@ -19,12 +19,7 @@ const Navigation = ({history}) => {
       <Nav.Link href="/signup">
         Signup
       </Nav.Link>
-      <Nav.Link href="/" onClick={() => {
-                    window.localStorage.removeItem("token")
-                    setgState({...gState, token: false, user: null})
-
-                }}>Logout</Nav.Link>
-
+     
     </Nav>
   </Navbar.Collapse>
 </Navbar>

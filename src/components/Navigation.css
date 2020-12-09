@@ -2,6 +2,8 @@
     background-color: black;
     opacity: 0.8;
     index: 1;
+    width: 100%;
+    display: flex;
 }
 
 button:focus {

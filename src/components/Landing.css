@@ -1,6 +1,7 @@
 .btn-primary {
     background-color: black;
     color: white;
+    box-shadow: 1px 2px gray;
 }
 
 a.btn.btn-primary.btn-lg:hover {
@@ -8,3 +9,58 @@ a.btn.btn-primary.btn-lg:hover {
     color: black;
     border-color: black;
 }
+
+.highlight {
+    background-color: rgba(255,255,255,0.5);
+    width: 500px;
+    border-radius: 15px;
+
+}
+
+.row {
+    border-left: solid gray;
+    border-right: solid gray;
+}
+.col-sm {
+border-left: solid gray;
+border-right: solid gray;
+}
+
+@media only screen and (max-width: 575px){
+    .row {
+    width: 300px;
+    margin: auto;
+    align-content: center;
+    border: none;
+    
+}
+.col-sm {
+    border: none;
+    border-bottom: solid gray;
+}
+    }
+
+@media only screen and (max-width: 1000px){
+.paragraph {
+    width: 300px;
+}
+}
+
+@media only screen and (min-width: 1200px){
+    .paragraph {
+        margin-left: 250px;
+    }
+}
+
+@media only screen and (min-width: 1600px){
+    .paragraph {
+        margin-left: 350px;
+    }
+}
+
+@media only screen and (min-width: 1750px){
+    .paragraph {
+        margin-left: 450px;
+    }
+}
+

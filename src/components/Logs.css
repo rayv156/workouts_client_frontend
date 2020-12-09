@@ -1,0 +1,15 @@
+.log-container {
+    display: flex;
+}
+
+th {
+    text-align: center;
+}
+
+@media only screen and (max-width: 750px) {
+.log-container {
+    flex-direction: column;
+    align-items: center;
+}
+
+}

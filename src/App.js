@@ -9,6 +9,7 @@ import Update from './components/Update'
 import Navigation from './components/Navigation'
 import NavSignedIn from './components/NavSignedIn'
 import Landing from './components/Landing'
+import Workouts from './components/Workouts'
 
 export const GlobalCtx = React.createContext(null)
 
@@ -46,6 +47,7 @@ function App() {
         <Route path="/login" exact component={Login} />
         <Route path="/create" exact component={Create} />
         <Route path="/update" exact component={Update}  />
+        <Route path="/workouts" exact component={Workouts} />
         
       </Switch>
     </div>
