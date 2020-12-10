@@ -31,12 +31,12 @@ const Workouts = () => {
   
   const loaded = () => (
     <div className="workout-container" >
-    {workouts.map((workout)=> {
+    {workouts.map((workout, index)=> {
         return (
-            <div className="card" style={{width: 350, margin: 10, justifyContent: 'space-between', fontFamily: 'Permanent Marker, cursive'}}>
-            <h2 className="card-header">Workout</h2>
+            <div className="card" style={{width: 350, margin: 10, justifyContent: 'space-between', fontFamily: 'Permanent Marker, cursive', boxShadow: '5px 5px 20px gray'}}>
+            <h2 className="card-header">Workout #{index+1}</h2>
       <table className="card-body table first">
-                <thead>
+                <thead className="thead-dark">
                     <tr>
                         <th scope="col1">Level</th>
                         <th scope="col2">Sets</th>
@@ -59,7 +59,7 @@ const Workouts = () => {
       </table>
 
       <table className="card-body table second">
-                <thead>
+                <thead className="table-info">
                     <tr>
                         <th scope="col1">Reps</th>
                         <th scope="col2">Exercise</th>

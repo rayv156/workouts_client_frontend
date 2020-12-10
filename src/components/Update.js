@@ -4,7 +4,7 @@ import './Create.css'
 
 const Update = ({history}) => {
     const {gState, setgState} = React.useContext(GlobalCtx)
-    const { selectedLog } = gState
+    const { url, selectedLog } = gState
 
     const user = JSON.parse(window.localStorage.getItem("user"))
     const [formData, setFormData] = React.useState({
@@ -22,7 +22,7 @@ const Update = ({history}) => {
       const handleUpdate = async (event) => {
         event.preventDefault() //prevent page refresh
         const token = await window.localStorage.getItem("token")
-        await fetch("http://localhost:3000/logs/" + gState.selectedLog.id, {
+        await fetch(url + "/logs/" + gState.selectedLog.id, {
           method: "put",
           headers: {
             "Content-Type":"application/json",
@@ -30,21 +30,27 @@ const Update = ({history}) => {
           },
           body: JSON.stringify(formData)
         })
-        history.push("/")
+        history.push("/logs")
       }
 
       return (
-          <div>
+          <div className="form-container">
         <h1>Update Log</h1>
         <form onSubmit={handleUpdate}>
+          <div className="form-group">
         <label>Duration: </label>
-        <input type="time" className="without_ampm" name="duration" value={formData.duration} onChange={createChange}/>
+        <input type="text" className="without_ampm form-control" name="duration" value={formData.duration} onChange={createChange}/>
+        </div>
+        <div className="form-group">
         <label>Workout Type: </label>
-          <input type="text" name="workout" value={formData.workout} onChange={createChange}/>
+          <input type="text" name="workout" className="form-control" value={formData.workout} onChange={createChange}/>
+          </div>
+          <div className="form-group">
           <label>Notes: </label>
-          <input type="text" name="notes" value={formData.notes} onChange={createChange}/>
+          <textarea type="text" name="notes" className="form-control" value={formData.notes} onChange={createChange}/>
+          </div>
           <input type="hidden" name="user_id" value={formData.user_id}/>
-          <input type="submit" value="Update Log"/>
+          <input type="submit" className="btn btn-primary btn-block" value="Update Log"/>
         </form>
         </div>
       )

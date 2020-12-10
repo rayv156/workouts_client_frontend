@@ -32,7 +32,7 @@ const Logs = ({history}) => {
     <div className="log-container" >
     {logs.map((log)=> {
       return (
-        <div className="card" style={{width: '80%', margin: 10, height: 350, justifyContent: 'space-between', fontFamily: 'Permanent Marker, cursive'}}>
+        <div className="card" style={{width: '350px', margin: 10, height: 350, justifyContent: 'space-between', fontFamily: 'Permanent Marker, cursive', boxShadow: '5px 5px 20px gray'}}>
             
       <h2 className="card-header">{log.workout}</h2>
       <h3 className="card-title">Time: {log.duration}</h3>
@@ -43,7 +43,7 @@ const Logs = ({history}) => {
           history.push("/update")}}><ion-icon name="create-outline" style={{fontSize: 25}}></ion-icon></button>
       <button className="btn btn-danger" style={{width: 70, margin: '10px', backgroundColor: 'red'}} onClick={async ()=> {
         const token = await window.localStorage.getItem("token") 
-        await fetch("http://localhost:3000/logs/" + log.id, {
+        await fetch(url + "/logs/" + log.id, {
           method: "delete",
           headers: {
             "Content-Type":"application/json",

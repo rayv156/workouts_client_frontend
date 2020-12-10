@@ -6,21 +6,20 @@ const Landing = () => {
 
     return (
         <>
-        <div className="jumbotron" style={{backgroundImage: 'url("https://post.healthline.com/wp-content/uploads/2020/07/9539-man_exercise_run-1200x628-facebook-1200x628.jpg")', paddingTop: 200, backgroundPosition: 'center' , backgroundRepeat: 'no-repeat', textAlign: 'left', boxShadow: '10px'}}>
+        <div className="jumbotron" style={{backgroundPosition: 'center' , backgroundRepeat: 'no-repeat', textAlign: 'left'}}>
         <div className="paragraph">
-        <h1 className="title">hello</h1>
         <div className="highlight">
-        <h1 className="display-4">Hello, world!</h1>
+        <h1 className="display-4">See your progress</h1>
   <p className="lead">Keep your fitness logs organized and discover new workouts.</p>
   <hr className="my-4"/>
   <p>Sign up and get started.</p>
   </div>
   <p className="lead">
-    <a className="btn btn-primary btn-lg" href="/signup" role="button">Join Now</a>
+    <div id="slide"><a className="btn btn-primary btn-lg" href="/signup" role="button">Join Now</a></div>
   </p>
   </div>
         </div>
-        <div class="container">
+        <div class="container" style={{paddingBottom: 30}}>
   <div class="row">
     <div class="col-sm">
       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsIirQEk7KZ9s0_AFbToyXTjK9jN3ifvo2Zg&usqp=CAU" style={{width: '50%'}}></img>
