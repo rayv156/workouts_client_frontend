@@ -12,7 +12,6 @@ const Login = ({ history }) => {
     }
     const [form, setForm] = React.useState(blank)
 
-
     const handleChange = (event) => {
         setForm({...form, [event.target.name]: event.target.value})
     }
@@ -34,6 +33,7 @@ const Login = ({ history }) => {
                 window.localStorage.setItem("user", JSON.stringify(data.user))
             setgState({...gState, token: true, user: data.user, error: null})
             setForm(blank)
+            alert(`You have successfully signed in.  Welcome ${data.user.username}!`)
             history.push("/")
             } else {
                 setgState({...gState, error: data.error})

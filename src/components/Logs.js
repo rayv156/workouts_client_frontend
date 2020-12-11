@@ -26,6 +26,21 @@ const Logs = ({history}) => {
       getLogs()
     }, [])
 
+    const spinner = () => {
+      return (
+        <div style={{display: 'flex', justifyContent: 'center'}}>
+        <div className="spinner-grow spinner-grow-sm" role="status">
+          <span className="sr-only">Loading...</span>
+        </div>
+        <div className="spinner-grow spinner-grow-md" role="status">
+          <span className="sr-only">Loading...</span>
+        </div>
+        <div className="spinner-grow spinner-grow-lg" role="status">
+          <span className="sr-only">Loading...</span>
+        </div>
+        </div>
+      )
+    }
    
   
   const loaded = () => (
@@ -64,7 +79,7 @@ const Logs = ({history}) => {
       <div className="logs">
         <button class="btn btn-secondary" style={{margin: 15}}><Link to="/create" style={{textDecoration: 'none', color: 'white'}}>Create New Log</Link></button>
         <h1>Logs</h1>
-      {logs.length > 0 ? loaded() : null}
+      {logs.length > 0 ? loaded() : spinner()}
       </div>
     );
 }

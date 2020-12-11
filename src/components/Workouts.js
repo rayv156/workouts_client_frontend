@@ -27,7 +27,21 @@ const Workouts = () => {
       getWorkouts()
     }, [])
 
-   
+    const spinner = () => {
+      return (
+        <div style={{display: 'flex', justifyContent: 'center'}}>
+        <div className="spinner-grow spinner-grow-sm" role="status">
+          <span className="sr-only">Loading...</span>
+        </div>
+        <div className="spinner-grow spinner-grow-md" role="status">
+          <span className="sr-only">Loading...</span>
+        </div>
+        <div className="spinner-grow spinner-grow-lg" role="status">
+          <span className="sr-only">Loading...</span>
+        </div>
+        </div>
+      )
+    }
   
   const loaded = () => (
     <div className="workout-container" >
@@ -91,7 +105,7 @@ const Workouts = () => {
     return (
       <div className="workouts">
         <h1>Workouts</h1>
-      {workouts.length > 0 ? loaded() : null}
+      {workouts.length > 0 ? loaded() : spinner()}
       </div>
     );
 }
