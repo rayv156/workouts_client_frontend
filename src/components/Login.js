@@ -29,11 +29,17 @@ const Login = ({ history }) => {
         })
         .then(response => response.json())
         .then(data => {
-            window.localStorage.setItem("token", data.token)
-            window.localStorage.setItem("user", JSON.stringify(data.user))
-            setgState({...gState, token: true, user: data.user})
+            if (data.token){
+                window.localStorage.setItem("token", data.token)
+                window.localStorage.setItem("user", JSON.stringify(data.user))
+            setgState({...gState, token: true, user: data.user, error: null})
             setForm(blank)
             history.push("/")
+            } else {
+                setgState({...gState, error: data.error})
+                setForm(blank)
+                history.push("/login")
+            }
         })
 
     }
@@ -66,6 +72,7 @@ const Login = ({ history }) => {
                 value={form.password}
                 onChange={handleChange} />
         </div>
+        <p style={{color: 'red'}}>{gState.error}</p>
         <button
             className="btn btn-primary btn-block"
             type="submit">Submit</button>

@@ -24,8 +24,9 @@ const NavSignedIn = ({history}) => {
       <Nav.Link href="/logs">Logs</Nav.Link>
       <Nav.Link href="/" onClick={() => {
           window.localStorage.removeItem("token")
+          window.localStorage.removeItem("user")
           setgState({...gState, token: false, user: null})
-          
+          alert("You have successfully Logged Out")
         }}>Logout</Nav.Link>
 
     </Nav>

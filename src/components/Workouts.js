@@ -12,7 +12,7 @@ const Workouts = () => {
   
     const getWorkouts = async () => {
     const token = await window.localStorage.getItem("token")
-      const response = await fetch(url + "/workouts",  {
+      const response = await fetch(`${url}/workouts`,  {
         method: "get",
         headers: {
           "Content-Type": "application/json",

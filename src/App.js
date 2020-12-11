@@ -15,7 +15,13 @@ export const GlobalCtx = React.createContext(null)
 
 function App() {
 
-  const [gState, setgState] = React.useState({url: "http://localhost:3000", token: false, user: null, selectedLog: null})
+  const [gState, setgState] = React.useState({
+    url: "https://workouts-backend.herokuapp.com", 
+    token: false, 
+    user: null, 
+    electedLog: null, 
+    error: null
+  })
 
   React.useEffect(()=>{
      const token = window.localStorage.getItem("token")

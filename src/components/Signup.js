@@ -32,7 +32,7 @@ const Signup = ({history}) => {
         .then(response => response.json())
         .then(data => {
             setForm(blank)
-            console.log("signed up")
+            alert("Thanks for signing up! Login to get started.")
             history.push("/login")
         })
 
