@@ -39,7 +39,7 @@ const Update = ({history}) => {
         <form onSubmit={handleUpdate}>
           <div className="form-group">
         <label>Duration: </label>
-        <input type="time" className="without_ampm form-control" name="duration" value={formData.duration} onChange={createChange}/>
+        <input type="text" className="without_ampm form-control" name="duration" value={formData.duration} onChange={createChange}/>
         </div>
         <div className="form-group">
         <label>Workout Type: </label>
